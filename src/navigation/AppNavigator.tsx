@@ -4,7 +4,8 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from 'react-native-screens/native-stack';
 
 import TabBar from '../components/TabBar';
-import AssetsScreen from '../screens/AssetsScreen';
+import AssetsScreen, { screenOptions as AssetsOptions } from '../screens/AssetsScreen';
+import ChartScreen from '../screens/ChartScreen';
 import NewsScreen, { screenOptions as NewsOptions } from '../screens/News';
 import { FontAwesome } from '@expo/vector-icons';
 import TradeScreen from '../screens/TradeScreen';
@@ -22,9 +23,10 @@ const HomeStackNavigator = createNativeStackNavigator<RootStackParamList>();
 const HomeNavigator = () => {
   return (
     <HomeStackNavigator.Navigator screenOptions={NewsOptions}>
-      <HomeStackNavigator.Screen
+      <HomeStackNavigator.Screen 
+        options={AssetsOptions}
         name='AssetsScreen'
-        component={AssetsScreen}
+        component={ChartScreen}
       />
       <HomeStackNavigator.Screen name='News' component={NewsScreen} />
     </HomeStackNavigator.Navigator>
